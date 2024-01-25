@@ -1,20 +1,17 @@
-use std::slice::SliceIndex;
 use std::{collections::HashMap, vec};
 use std::error::Error;
 use std::net::TcpListener;
 use serde_json::Value;
-use tokio::io::AsyncReadExt;
+use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
 use tokio::runtime::Runtime;
-use avtp_protocol::{send_data, receive_data};
 use reqwest::Client; 
-use base64::{Engine as _, alphabet, engine::{self, general_purpose}};
 
 static LLM_URL: &str = "http://localhost:11434/api/generate";
-static TTS_URL: &str = "http://localhost:5000/api/audio/tts";
+//static TTS_URL: &str = "http://localhost:5000/api/audio/tts";
 
 
-fn base64_to_bytes(base64_str: &str) -> Vec<u8> {
+/*fn base64_to_bytes(base64_str: &str) -> Vec<u8> {
     if base64_str.is_empty() {
         panic!("Response string was empty, could not convert to bytes")
     }
@@ -47,7 +44,7 @@ async fn convert_response_to_mp3_base64(response_str: &str) -> Result<String, re
             Err(err)
         }
     }
-}
+}*/
 
 fn transform_vec_jsonstrings_to_jsonobj(jsonarray_responses: Vec<String>) -> Vec<serde_json::Value> {
     jsonarray_responses.into_iter().map(|s| {
@@ -145,15 +142,14 @@ async fn handle_connection(mut stream: TcpStream) -> Result<(), Box<dyn Error>> 
 
     println!("The full response is: {}", full_res_string);
 
-    let base64_res_str = convert_response_to_mp3_base64(full_res_string.as_str())
-        .await.unwrap_or(String::new());
+    //let base64_res_str = convert_response_to_mp3_base64(full_res_string.as_str()).await.unwrap_or(String::new());
+    //print!("Base64 Result: {}", base64_res_str);
 
-    print!("Base64 Result: {}", base64_res_str);
+    //let byte_arr = base64_to_bytes(base64_res_str.as_str());
+    //let byte_slice = byte_arr.as_slice();
+    //send_data(stream.into_std().unwrap(), &byte_slice, "binary")?;
 
-    let byte_arr = base64_to_bytes(base64_res_str.as_str());
-    let byte_slice = byte_arr.as_slice();
-
-    send_data(stream.into_std().unwrap(), &byte_slice, "binary")?;
+    stream.write(&mut full_res_string.as_bytes()).await?;
 
     Ok(())
 }
