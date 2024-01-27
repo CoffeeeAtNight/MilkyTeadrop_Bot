@@ -28,5 +28,10 @@ RUST_PID=$!
 echo "Starting Discord Bot"
 cd ../../src
 go run main.go
+cd ../
 
+# Start Python Rest API
+# echo "Now starting Python Rest API"
+# cd ../models/stable_diffusion
+# flask --app main run &
 # The cleanup function will be called automatically when the script exits
