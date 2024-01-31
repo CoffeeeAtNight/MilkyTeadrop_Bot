@@ -1,6 +1,6 @@
 # MilkyTeadrop Discord Bot
 
-MilkyTeadrop is a Discord bot designed to provide image generation and Q&A services. It interfaces with a Rust backend server for processing questions and a Python REST API for image generation. It also uses a remote fileserver via REST-API for persisting and retrieving images.
+MilkyTeadrop is a Discord bot designed to provide image generation and Q&A services. It interfaces with a Rust backend server for processing questions and a Python REST API for image generation. It also utilizes a custom-written remote UNIX-based fileserver via REST-API to persist and retrieve images.
 
 ## Features
 
