@@ -69,6 +69,7 @@ Contributions to MilkyTeadrop are welcome!
 
 - Aki, the creator of MilkyTeadrop.
 - Mocha, Aki's cat and the unofficial mascot.
+  
 ![image (3)](https://github.com/CoffeeeAtNight/MilkyTeadrop_Bot/assets/98992091/e8b796c2-10d1-4b86-a4a5-e2e6198f732f)
 
 
