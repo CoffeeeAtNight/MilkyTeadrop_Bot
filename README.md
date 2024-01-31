@@ -2,6 +2,11 @@
 
 MilkyTeadrop is a Discord bot designed to provide image generation and Q&A services. It interfaces with a Rust backend server for processing and forwarding questions to a local LLM and also prompts a Python-based AI Service exposing a Rest-API for image generation. It also utilizes a custom-written upstream remote UNIX-based fileserver via REST-API to persist and retrieve images.
 
+## Examples: 
+![image](https://github.com/CoffeeeAtNight/MilkyTeadrop_Bot/assets/98992091/fe7efe1b-65b4-4d39-b7a2-566216cf5129)
+
+![image](https://github.com/CoffeeeAtNight/MilkyTeadrop_Bot/assets/98992091/666444b1-61af-49d5-98c3-76648d444e9a)
+
 ## Features
 
 - **Ask Questions**: Users can ask questions which are processed by a backend server.
@@ -54,7 +59,7 @@ cd ./scripts
 - This README is not intended to fully guide you to setup the enviroment on your own machine and requires installation of seperate tools.
 - For the Q&A Model, I use ollama/llama2. A docker like system to serve locally hosted LLMs. [llama2](https://ollama.ai/library/llama2)
 - The Stable Diffusion model is pulled from hugging face [Stable Diffusion v1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
-- THE CODE IS NOT INTENDED FOR PRODUCTION USE AND IS ONLY A FUN PROJECT OF MINE. SAME GOES FOR THE [MILKYTEADROP-FILESERVER](https://github.com/CoffeeeAtNight/MilkyTeadrop_FileServer) AS THE SYSTEM EXPOSES APIS THAT ARE VULNERABLE TO CYBER ATTACKS. 
+- THE CODE IS NOT INTENDED FOR PRODUCTION USE AND IS ONLY A FUN PROJECT OF MINE. SAME GOES FOR THE [MILKYTEADROP-FILESERVER](https://github.com/CoffeeeAtNight/MilkyTeadrop_FileServer) AS THE SYSTEM EXPOSES APIS THAT ARE VULNERABLE TO CYBER ATTACKS.
 
 ## Contributing
 
